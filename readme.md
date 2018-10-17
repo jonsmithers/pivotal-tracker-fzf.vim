@@ -15,9 +15,18 @@ Plug 'jonsmithers/pivotal-tracker-fzf.vim'
 
 Make sure the following environment variables are defined:
 
-| variable                      | source                           |
-| ---                           | ---                              |
-| `$PIVOTAL_TRACKER_TOKEN`      | Can be obtained from profile     |
-| `$PIVOTAL_TRACKER_PROJECT_ID` | Can be obtained from project url |
+| variable                      | source                            |
+| ---                           | ---                               |
+| `$PIVOTAL_TRACKER_PROJECT_ID` | Can be obtained from project url  |
+| `$PIVOTAL_TRACKER_TOKEN`      | Can be obtained from user profile |
 
-Then, while in insert mode, press `Ctrl-X Ctrl-P` to open fuzzy-find prompt.
+While not recommended, you _can_ defined environment variables with vimscript:
+
+```vim
+let $PIVOTAL_TRACKER_PROJECT_ID='...'
+let $PIVOTAL_TRACKER_TOKEN='...'
+```
+
+Then, whenever you're in insert mode, press `Ctrl-X Ctrl-P` to open the fzf
+(fuzzy-find) prompt. Info on how to use fzf can be found
+[here](https://github.com/junegunn/fzf#using-the-finder).
