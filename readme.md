@@ -1,4 +1,5 @@
-This plugin is under construction and liable to breaking changes.
+> ### 🛠 Status: Under Construction
+> This plugin is liable to make breaking changes.
 
 Simple vim plugin to fuzzy-find PivotalTracker issues by name and then insert
 ids of issues you selected.
