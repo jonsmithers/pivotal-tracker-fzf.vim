@@ -1,11 +1,11 @@
 function! pivotaltrackerfzf#do_the_thing()
   if (empty($PIVOTAL_TRACKER_TOKEN))
     echoerr '\$PIVOTAL_TRACKER_TOKEN not defined' 
-    return
+    return ''
   endif
   if (empty($PIVOTAL_TRACKER_PROJECT_ID))
     echoerr '\$PIVOTAL_TRACKER_PROJECT_ID not defined' 
-    return
+    return ''
   endif
   let l:cmd = 'curl 
         \ -sfG -X GET 
@@ -24,6 +24,9 @@ function! pivotaltrackerfzf#do_the_thing()
 endfunction
 
 func! s:sink(selection)
+  if (len(a:selection) == 0)
+    return ''
+  endif
   let l:result = map(a:selection, {index, issue -> '#' . matchstr(issue, '^\d\+')})
   let l:result = '[' . join(l:result, ',') . ']'
   let s:result = l:result
