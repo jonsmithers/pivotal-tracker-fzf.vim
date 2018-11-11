@@ -14,7 +14,7 @@ function! pivotaltrackerfzf#do_the_thing()
         \ --data-urlencode fields=name https://www.pivotaltracker.com/services/v5/projects/$PIVOTAL_TRACKER_PROJECT_ID/stories'
   let l:result = system(l:cmd)
   if (empty(l:result) || v:shell_error != 0)
-    echoerr "Failed to reach PivotalTracker"
+    echoerr 'Failed to reach PivotalTracker'
     return ''
   endif
   let l:result = json_decode(l:result)
