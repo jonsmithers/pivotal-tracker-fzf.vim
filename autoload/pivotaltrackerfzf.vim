@@ -1,10 +1,10 @@
 function! pivotaltrackerfzf#do_the_thing()
   if (empty($PIVOTAL_TRACKER_TOKEN))
-    echoerr '\$PIVOTAL_TRACKER_TOKEN not defined' 
+    echoerr '$PIVOTAL_TRACKER_TOKEN not defined' 
     return ''
   endif
   if (empty($PIVOTAL_TRACKER_PROJECT_ID))
-    echoerr '\$PIVOTAL_TRACKER_PROJECT_ID not defined' 
+    echoerr '$PIVOTAL_TRACKER_PROJECT_ID not defined' 
     return ''
   endif
   let l:cmd = 'curl 
