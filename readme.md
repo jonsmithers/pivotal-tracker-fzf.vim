@@ -12,8 +12,8 @@ Made to help you reference Pivotal Tracker issues in your git commit messages.
 ## Installation
 
 ```vim
-Plug 'junegunn/fzf.vim'
 Plug 'jonsmithers/pivotal-tracker-fzf.vim'
+Plug 'junegunn/fzf' " mandatory dependency
 ```
 
 ## Usage
