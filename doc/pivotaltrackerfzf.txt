@@ -3,10 +3,26 @@ pivotaltrackerfzf.txt Insert issue ids from Pivotal Tracker
 CONTENTS                                                   *pivotal-tracker-fzf*
 ==============================================================================
 
+- Introduction                                           |pivotal-tracker-intro|
 - Formatting                                    |pivotal-tracker-fzf-formatting|
 - Environment Variables 101          |pivotal-tracker-fzf-environment-variables|
 
-Formatting                                      *pivotal-tracker-fzf-formatting*
+INTRODUCTION                                            *pivotal-tracker-intro*
+==============================================================================
+
+This plugin was made to make it easy to reference Pivotal Tracker issues when
+writing git commit messages.
+
+While in insert mode, press CTRL-X CTRL-I to launch a prompt to select and
+insert issue-tracker ids from Pivotal Tracker (unless otherwise configured).
+
+You will need to have the correct environment variables in order for this
+plugin to communicate with the Pivotal Tracker servers.
+
+- $PIVOTAL_TRACKER_TOKEN
+- $PIVOTAL_TRACKER_PROJECT_ID
+
+FORMATTING                                      *pivotal-tracker-fzf-formatting*
 ==============================================================================
 
   g:pivotaltracker.prefix                              *g:pivotaltracker.prefix*
@@ -30,7 +46,7 @@ Formatting                                      *pivotal-tracker-fzf-formatting*
       \ }
 <
 
-Environment Variables 101            *pivotal-tracker-fzf-environment-variables*
+ENVIRONMENT VARIABLES 101            *pivotal-tracker-fzf-environment-variables*
 ==============================================================================
 
 For now, refer to:

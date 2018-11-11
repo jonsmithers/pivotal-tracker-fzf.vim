@@ -6,5 +6,5 @@ let s:enable_default_mapping =
       \ && !hasmapto('<Plug>pivotaltracker-insert-ids')
 
 if (s:enable_default_mapping)
-  imap <C-x><C-p> <Plug>pivotaltracker-insert-ids
+  imap <C-x><C-i> <Plug>pivotaltracker-insert-ids
 endif
