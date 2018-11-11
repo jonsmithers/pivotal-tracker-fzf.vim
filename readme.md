@@ -25,13 +25,31 @@ Make sure the following environment variables are defined:
 | `$PIVOTAL_TRACKER_PROJECT_ID` | Can be obtained from project url  |
 | `$PIVOTAL_TRACKER_TOKEN`      | Can be obtained from user profile |
 
-While not recommended, you _can_ defined environment variables with vimscript:
-
-```vim
-let $PIVOTAL_TRACKER_PROJECT_ID='...'
-let $PIVOTAL_TRACKER_TOKEN='...'
-```
-
 Then, whenever you're in insert mode, press `Ctrl-X Ctrl-P` to open the fzf
 (fuzzy-find) prompt. Info on how to use fzf can be found
 [here](https://github.com/junegunn/fzf#using-the-finder).
+
+### Environment Variables 101
+
+You can set environment variables from within vim:
+
+```vim
+:let $PIVOTAL_TRACKER_PROJECT_ID='...'
+:let $PIVOTAL_TRACKER_TOKEN='...'
+```
+
+Or you can set them from the terminal:
+
+```bash
+export PIVOTAL_TRACKER_TOKEN=<token>
+export PIVOTAL_TRACKER_PROJECT_ID=<id>
+vim
+```
+
+```bash
+PIVOTAL_TRACKER_TOKEN=<token> PIVOTAL_TRACKER_PROJECT_ID=<id> vim
+```
+
+Or you can set them automatically with a handy tool such as
+[***direnv***](https://direnv.net/) or
+[***vim-dotenv***](https://github.com/tpope/vim-dotenv).
