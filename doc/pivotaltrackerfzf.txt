@@ -1,9 +1,34 @@
 pivotaltrackerfzf.txt Insert issue ids from Pivotal Tracker
 
-Pivotal Tracker FZF - TABLE OF CONTENTS                    *pivotal-tracker-fzf*
+CONTENTS                                                   *pivotal-tracker-fzf*
 ==============================================================================
 
-- Environment Variables 101
+- Formatting                                    |pivotal-tracker-fzf-formatting|
+- Environment Variables 101          |pivotal-tracker-fzf-environment-variables|
+
+Formatting                                      *pivotal-tracker-fzf-formatting*
+==============================================================================
+
+  g:pivotaltracker.prefix                              *g:pivotaltracker.prefix*
+  g:pivotaltracker.suffix                              *g:pivotaltracker.suffix*
+  g:pivotaltracker.individual_prefix        *g:pivotaltracker.individual_prefix*
+  g:pivotaltracker.individual_suffix        *g:pivotaltracker.individual_suffix*
+  g:pivotaltracker.delimiter                        *g:pivotaltracker.delimiter*
+
+    By default, selected issue-tracker ids are formatted to appear as follows:
+>
+      [#id1,#id2,#id3]
+<
+    The default configuration values are:
+>
+    let g:pivotaltracker = {
+      \ prefix:            '[',
+      \ suffix:            ']',
+      \ individual_prefix: '#',
+      \ individual_suffix: '',
+      \ delimiter:         ',',
+      \ }
+<
 
 Environment Variables 101            *pivotal-tracker-fzf-environment-variables*
 ==============================================================================

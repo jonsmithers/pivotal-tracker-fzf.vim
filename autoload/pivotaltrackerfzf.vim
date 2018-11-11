@@ -41,7 +41,18 @@ func! s:sink(selection)
   if (len(a:selection) == 0)
     return ''
   endif
-  let l:result = map(a:selection, {index, issue -> '#' . matchstr(issue, '^\d\+')})
-  let l:result = '[' . join(l:result, ',') . ']'
+  let l:config = s:grab_config()
+  let l:result = map(a:selection, {index, issue -> l:config.individual_prefix . matchstr(issue, '^\d\+') . l:config.individual_suffix})
+  let l:result = l:config.prefix . join(l:result, l:config.delimiter) . l:config.suffix
   let s:result = l:result
+endfunc
+
+func! s:grab_config()
+  let l:config                   = exists('g:pivotaltracker')           ? g:pivotaltracker           : {}
+  let l:config.prefix            = exists('g:pivotaltracker.prefix')    ? g:pivotaltracker.prefix    : '['
+  let l:config.individual_prefix = exists('g:pivotaltracker.prefix')    ? g:pivotaltracker.prefix    : '#'
+  let l:config.individual_suffix = exists('g:pivotaltracker.prefix')    ? g:pivotaltracker.prefix    : ''
+  let l:config.suffix            = exists('g:pivotaltracker.suffix')    ? g:pivotaltracker.suffix    : ']'
+  let l:config.delimiter         = exists('g:pivotaltracker.delimeter') ? g:pivotaltracker.delimeter : ','
+  return l:config
 endfunc
