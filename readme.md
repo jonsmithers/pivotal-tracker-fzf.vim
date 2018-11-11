@@ -25,7 +25,7 @@ Make sure the following environment variables are defined:
 | `$PIVOTAL_TRACKER_PROJECT_ID` | Can be obtained from project url  |
 | `$PIVOTAL_TRACKER_TOKEN`      | Can be obtained from user profile |
 
-Then, while in insert mode, press `Ctrl-X Ctrl-P` to open the fzf prompt, and
+Then, while in insert mode, press `Ctrl-X Ctrl-I` to open the fzf prompt, and
 [make your selection](https://github.com/junegunn/fzf#using-the-finder).
 
 ### Mappings
