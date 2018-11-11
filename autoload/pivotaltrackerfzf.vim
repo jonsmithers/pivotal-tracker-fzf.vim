@@ -48,11 +48,11 @@ func! s:sink(selection)
 endfunc
 
 func! s:grab_config()
-  let l:config                   = exists('g:pivotaltracker')           ? g:pivotaltracker           : {}
-  let l:config.prefix            = exists('g:pivotaltracker.prefix')    ? g:pivotaltracker.prefix    : '['
-  let l:config.individual_prefix = exists('g:pivotaltracker.prefix')    ? g:pivotaltracker.prefix    : '#'
-  let l:config.individual_suffix = exists('g:pivotaltracker.prefix')    ? g:pivotaltracker.prefix    : ''
-  let l:config.suffix            = exists('g:pivotaltracker.suffix')    ? g:pivotaltracker.suffix    : ']'
-  let l:config.delimiter         = exists('g:pivotaltracker.delimeter') ? g:pivotaltracker.delimeter : ','
+  let l:config                   = exists('g:pivotaltracker')                   ? g:pivotaltracker                   : {}
+  let l:config.prefix            = exists('g:pivotaltracker.prefix')            ? g:pivotaltracker.prefix            : '['
+  let l:config.individual_prefix = exists('g:pivotaltracker.individual_prefix') ? g:pivotaltracker.individual_prefix : '#'
+  let l:config.individual_suffix = exists('g:pivotaltracker.individual_suffix') ? g:pivotaltracker.individual_suffix : ''
+  let l:config.suffix            = exists('g:pivotaltracker.suffix')            ? g:pivotaltracker.suffix            : ']'
+  let l:config.delimiter         = exists('g:pivotaltracker.delimiter')         ? g:pivotaltracker.delimiter         : ','
   return l:config
 endfunc
