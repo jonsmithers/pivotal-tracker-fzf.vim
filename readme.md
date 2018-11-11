@@ -46,10 +46,11 @@ let g:pivotaltracker.suffix            = ''
 
 ### Mappings
 
-You can map a custom keybinding to `<Plug>pivotaltracker-insert-ids`.
+The default mapping is `Ctrl-X Ctrl-I` (from insert mode), but you can map a
+custom keybinding to `<Plug>pivotaltracker-insert-ids`:
 
 ```vim
-inoremap <Leader>p <Plug>pivotaltracker-insert-ids
+nmap <Leader>p <Plug>pivotaltracker-insert-ids
 ```
 
 ## Environment Variables 101
