@@ -33,7 +33,12 @@ function! pivotaltrackerfzf#insert_ids()
   if (exists('s:result'))
     unlet s:result
   endif
-  call fzf#run({'source': l:result, 'sink*': funcref('s:sink'), 'options': '--multi'})
+
+  let l:fzf_args = {'source': l:result, 'sink*': funcref('s:sink'), 'options': '--multi'}
+  if (exists('*fzf#wrap()'))
+    let l:fzf_args = fzf#wrap(l:fzf_args)
+  endif
+  call fzf#run(l:fzf_args)
   return exists('s:result') ? s:result : ''
 endfunction
 
