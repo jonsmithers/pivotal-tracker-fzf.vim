@@ -25,7 +25,7 @@ Make sure the following environment variables are defined:
 | `$PIVOTAL_TRACKER_PROJECT_ID` | Can be obtained from project url  |
 | `$PIVOTAL_TRACKER_TOKEN`      | Can be obtained from user profile |
 
-Then, whenever you're in insert mode, press `Ctrl-X Ctrl-P` to open the fzf
+Then, while in insert mode, press `Ctrl-X Ctrl-P` to open the fzf
 (fuzzy-find) prompt. Info on how to use fzf can be found
 [here](https://github.com/junegunn/fzf#using-the-finder).
 

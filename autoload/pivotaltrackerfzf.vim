@@ -1,4 +1,14 @@
-function! pivotaltrackerfzf#do_the_thing()
+let s:mock_response = 0 " for testing
+
+if (s:mock_response)
+  let $PIVOTAL_TRACKER_TOKEN = 1
+  let $PIVOTAL_TRACKER_PROJECT_ID = 2
+endif
+
+function! pivotaltrackerfzf#insert_ids()
+  if (!exists('*fzf#run()'))
+    echoerr 'FZF plugin not installed'
+  endif
   if (empty($PIVOTAL_TRACKER_TOKEN))
     echoerr '$PIVOTAL_TRACKER_TOKEN not defined' 
     return ''
@@ -12,15 +22,19 @@ function! pivotaltrackerfzf#do_the_thing()
         \ -H "X-TrackerToken: $PIVOTAL_TRACKER_TOKEN" 
         \ --data-urlencode "filter=-state:accepted -state:unscheduled" 
         \ --data-urlencode fields=name https://www.pivotaltracker.com/services/v5/projects/$PIVOTAL_TRACKER_PROJECT_ID/stories'
-  let l:result = system(l:cmd)
+  let l:result = s:mock_response ? pivotaltrackerfzftest#mock_curl() : system(l:cmd)
   if (empty(l:result) || v:shell_error != 0)
     echoerr 'Failed to reach PivotalTracker'
     return ''
   endif
   let l:result = json_decode(l:result)
   let l:result = map(l:result, {index, issue -> (string(issue.id) . ' ' . string(issue.name))})
+
+  if (exists('s:result'))
+    unlet s:result
+  endif
   call fzf#run({'source': l:result, 'sink*': funcref('s:sink'), 'options': '--multi'})
-  return s:result
+  return exists('s:result') ? s:result : ''
 endfunction
 
 func! s:sink(selection)
