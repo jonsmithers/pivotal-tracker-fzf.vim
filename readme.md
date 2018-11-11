@@ -5,8 +5,9 @@
 
 ## Fuzzy-Find and Insert Issue IDs in Vim
 
-Simple vim plugin to fuzzy-find PivotalTracker issues by name and then insert
-ids of issues you selected.
+Made to help you reference Pivotal Tracker issues in your git commit messages.
+
+![Demonstration](https://github.com/jonsmithers/pivotal-tracker-fzf.vim/raw/images/terminalizer/render1541926179705.gif)
 
 ### Installation
 
