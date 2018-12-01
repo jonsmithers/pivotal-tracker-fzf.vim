@@ -1,4 +1,4 @@
-let s:mock_response = 0 " for testing
+let s:mock_response = 1 " for testing
 
 if (s:mock_response)
   let $PIVOTAL_TRACKER_TOKEN = 1
@@ -17,10 +17,11 @@ function! pivotaltrackerfzf#insert_ids()
     echoerr '$PIVOTAL_TRACKER_PROJECT_ID not defined' 
     return ''
   endif
+  let s:config = s:grab_config()
   let l:cmd = 'curl 
         \ -sfG -X GET 
         \ -H "X-TrackerToken: $PIVOTAL_TRACKER_TOKEN" 
-        \ --data-urlencode "filter=-state:accepted -state:unscheduled" 
+        \ --data-urlencode "filter=' . s:config.filter . '"
         \ --data-urlencode fields=name https://www.pivotaltracker.com/services/v5/projects/$PIVOTAL_TRACKER_PROJECT_ID/stories'
   let l:result = s:mock_response ? pivotaltrackerfzftest#mock_curl() : system(l:cmd)
   if (empty(l:result) || v:shell_error != 0)
@@ -46,9 +47,8 @@ func! s:sink(selection)
   if (len(a:selection) == 0)
     return ''
   endif
-  let l:config = s:grab_config()
-  let l:result = map(a:selection, {index, issue -> l:config.individual_prefix . matchstr(issue, '^\d\+') . l:config.individual_suffix})
-  let l:result = l:config.prefix . join(l:result, l:config.delimiter) . l:config.suffix
+  let l:result = map(a:selection, {index, issue -> s:config.individual_prefix . matchstr(issue, '^\d\+') . s:config.individual_suffix})
+  let l:result = s:config.prefix . join(l:result, s:config.delimiter) . s:config.suffix
   let s:result = l:result
 endfunc
 
@@ -59,5 +59,6 @@ func! s:grab_config()
   let l:config.individual_suffix = exists('g:pivotaltracker.individual_suffix') ? g:pivotaltracker.individual_suffix : ''
   let l:config.suffix            = exists('g:pivotaltracker.suffix')            ? g:pivotaltracker.suffix            : ']'
   let l:config.delimiter         = exists('g:pivotaltracker.delimiter')         ? g:pivotaltracker.delimiter         : ','
+  let l:config.filter            = exists('g:pivotaltracker.filter')            ? g:pivotaltracker.filter            : '-state:accepted -state:unscheduled'
   return l:config
 endfunc

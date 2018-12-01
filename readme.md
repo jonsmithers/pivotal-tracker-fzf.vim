@@ -31,6 +31,16 @@ Then, while in insert mode, press `Ctrl-X Ctrl-I` to open the fzf prompt, and
 
 ## Customization
 
+### Filtering
+
+You can customize which stories are displayed using the query syntax described
+in [Pivotal Tracker's api
+docs](https://www.pivotaltracker.com/help/articles/advanced_search/)
+
+```vim
+let g:pivotaltracker.filter = 'state:started'
+```
+
 ### Formatting
 
 The following variables can be changed to configure how issue ids are

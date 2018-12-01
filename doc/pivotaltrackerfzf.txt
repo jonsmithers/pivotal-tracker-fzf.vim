@@ -4,10 +4,12 @@ CONTENTS                                                   *pivotal-tracker-fzf*
 ==============================================================================
 
 - Introduction                                           |pivotal-tracker-intro|
+- Filtering                                          |pivotal-tracker-filtering|
 - Formatting                                    |pivotal-tracker-fzf-formatting|
 - Environment Variables 101          |pivotal-tracker-fzf-environment-variables|
 
-INTRODUCTION                                            *pivotal-tracker-intro*
+
+INTRODUCTION                                             *pivotal-tracker-intro*
 ==============================================================================
 
 This plugin was made to make it easy to reference Pivotal Tracker issues when
@@ -21,6 +23,23 @@ plugin to communicate with the Pivotal Tracker servers.
 
 - $PIVOTAL_TRACKER_TOKEN
 - $PIVOTAL_TRACKER_PROJECT_ID
+
+
+FILTERING                                            *pivotal-tracker-filtering*
+==============================================================================
+
+  g:pivotaltracker.filter                              *g:pivotaltracker.filter*
+
+By default, the prompt displays all issues that aren't accepted or unscheduled
+(expressed as `-state:accepted -state:unscheduled`). You may want to customize
+this, for example, to only display issues whose state is `started`:
+>
+  let g:pivotaltracker.filter = 'state:started'
+<
+For information how how to format your filter string, refer to:
+>
+  https://www.pivotaltracker.com/help/articles/advanced_search/
+<
 
 FORMATTING                                      *pivotal-tracker-fzf-formatting*
 ==============================================================================
