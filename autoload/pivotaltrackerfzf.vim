@@ -19,10 +19,11 @@ function! pivotaltrackerfzf#insert_ids()
     return ''
   endif
   let s:config = s:grab_config()
+  let l:filter = substitute(s:config.filter, '"', '\\"', 'g')
   let l:cmd = 'curl 
         \ -sfG -X GET 
         \ -H "X-TrackerToken: $PIVOTAL_TRACKER_TOKEN" 
-        \ --data-urlencode "filter=' . s:config.filter . '"
+        \ --data-urlencode "filter=' . l:filter . '"
         \ --data-urlencode fields=name https://www.pivotaltracker.com/services/v5/projects/$PIVOTAL_TRACKER_PROJECT_ID/stories'
   let l:result = s:mock_response ? pivotaltrackerfzftest#mock_curl() : system(l:cmd)
   if (empty(l:result) || v:shell_error != 0)
