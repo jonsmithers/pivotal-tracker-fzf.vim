@@ -57,11 +57,11 @@ FORMATTING                                      *pivotal-tracker-fzf-formatting*
     The default configuration values are:
 >
     let g:pivotaltracker = {
-      \ prefix:            '[',
-      \ suffix:            ']',
+      \ prefix:            '',
+      \ suffix:            '',
       \ individual_prefix: '#',
       \ individual_suffix: '',
-      \ delimiter:         ',',
+      \ delimiter:         ', ',
       \ }
 <
 

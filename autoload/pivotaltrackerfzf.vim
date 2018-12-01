@@ -8,6 +8,7 @@ endif
 function! pivotaltrackerfzf#insert_ids()
   if (!exists('*fzf#run()'))
     echoerr 'FZF plugin not installed'
+    return ''
   endif
   if (empty($PIVOTAL_TRACKER_TOKEN))
     echoerr '$PIVOTAL_TRACKER_TOKEN not defined' 
@@ -54,11 +55,11 @@ endfunc
 
 func! s:grab_config()
   let l:config                   = exists('g:pivotaltracker')                   ? g:pivotaltracker                   : {}
-  let l:config.prefix            = exists('g:pivotaltracker.prefix')            ? g:pivotaltracker.prefix            : '['
+  let l:config.prefix            = exists('g:pivotaltracker.prefix')            ? g:pivotaltracker.prefix            : ''
   let l:config.individual_prefix = exists('g:pivotaltracker.individual_prefix') ? g:pivotaltracker.individual_prefix : '#'
   let l:config.individual_suffix = exists('g:pivotaltracker.individual_suffix') ? g:pivotaltracker.individual_suffix : ''
-  let l:config.suffix            = exists('g:pivotaltracker.suffix')            ? g:pivotaltracker.suffix            : ']'
-  let l:config.delimiter         = exists('g:pivotaltracker.delimiter')         ? g:pivotaltracker.delimiter         : ','
+  let l:config.suffix            = exists('g:pivotaltracker.suffix')            ? g:pivotaltracker.suffix            : ''
+  let l:config.delimiter         = exists('g:pivotaltracker.delimiter')         ? g:pivotaltracker.delimiter         : ', '
   let l:config.filter            = exists('g:pivotaltracker.filter')            ? g:pivotaltracker.filter            : '-state:accepted -state:unscheduled'
   return l:config
 endfunc
