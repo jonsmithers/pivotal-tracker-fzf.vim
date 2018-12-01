@@ -18,7 +18,6 @@ Plug 'junegunn/fzf' " mandatory dependency
 
 ## Usage
 
-
 Make sure the following environment variables are defined:
 
 | variable                      | source                            |
@@ -34,11 +33,11 @@ Then, while in insert mode, press `Ctrl-X Ctrl-I` to open the fzf prompt, and
 ### Filtering
 
 You can customize which stories are displayed using the query syntax described
-in [Pivotal Tracker's api
-docs](https://www.pivotaltracker.com/help/articles/advanced_search/)
+in [Pivotal Tracker's advanced search
+docs](https://www.pivotaltracker.com/help/articles/advanced_search/):
 
 ```vim
-let g:pivotaltracker.filter = 'state:started'
+let g:pivotaltracker.filter = 'state:started has:owner -label:"rebel scum"'
 ```
 
 ### Formatting
@@ -47,11 +46,11 @@ The following variables can be changed to configure how issue ids are
 formatted:
 
 ```vim
-let g:pivotaltracker.delimiter         = ','
+let g:pivotaltracker.delimiter         = ', '
+let g:pivotaltracker.prefix            = ''
+let g:pivotaltracker.suffix            = ''
 let g:pivotaltracker.individual_prefix = '#'
 let g:pivotaltracker.individual_suffix = ''
-let g:pivotaltracker.prefix            = 'addresses '
-let g:pivotaltracker.suffix            = ''
 ```
 
 ### Mappings

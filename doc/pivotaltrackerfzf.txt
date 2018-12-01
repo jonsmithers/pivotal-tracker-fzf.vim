@@ -44,11 +44,11 @@ For information how how to format your filter string, refer to:
 FORMATTING                                      *pivotal-tracker-fzf-formatting*
 ==============================================================================
 
+  g:pivotaltracker.delimiter                        *g:pivotaltracker.delimiter*
   g:pivotaltracker.prefix                              *g:pivotaltracker.prefix*
   g:pivotaltracker.suffix                              *g:pivotaltracker.suffix*
   g:pivotaltracker.individual_prefix        *g:pivotaltracker.individual_prefix*
   g:pivotaltracker.individual_suffix        *g:pivotaltracker.individual_suffix*
-  g:pivotaltracker.delimiter                        *g:pivotaltracker.delimiter*
 
     By default, selected issue-tracker ids are formatted to appear as follows:
 >
@@ -57,11 +57,11 @@ FORMATTING                                      *pivotal-tracker-fzf-formatting*
     The default configuration values are:
 >
     let g:pivotaltracker = {
+      \ delimiter:         ', ',
       \ prefix:            '',
       \ suffix:            '',
       \ individual_prefix: '#',
       \ individual_suffix: '',
-      \ delimiter:         ', ',
       \ }
 <
 
