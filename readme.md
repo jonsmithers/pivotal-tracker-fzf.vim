@@ -1,6 +1,3 @@
-> ### 🛠 Status: Under Construction
-> This plugin is liable to make breaking changes.
-
 [![PivotalTracker logo](https://assets.pivotaltracker.com/marketing_assets/shared_home/tracker-4679313e699d9ba696371344953de96c81d207d967a43f121d353391c81c9ba7.svg)](https://pivotaltracker.com)
 
 Made to help you reference Pivotal Tracker issues in your git commit messages.
