@@ -1,4 +1,4 @@
-let s:mock_response = 1 " for testing
+let s:mock_response = 0 " for testing
 
 if (s:mock_response)
   let $PIVOTAL_TRACKER_TOKEN = 1
@@ -49,19 +49,19 @@ func! s:sink(selection)
   if (len(a:selection) == 0)
     return ''
   endif
-  let l:result = map(a:selection, {index, issue -> s:config.individual_prefix . matchstr(issue, '^\d\+') . s:config.individual_suffix})
+  let l:result = map(a:selection, {index, issue -> s:config.prefix_each . matchstr(issue, '^\d\+') . s:config.suffix_each})
   let l:result = s:config.prefix . join(l:result, s:config.delimiter) . s:config.suffix
   let s:result = l:result
 endfunc
 
 func! s:grab_config() abort
   let l:config = {
-        \ 'filter':            '-state:accepted -state:unscheduled',
-        \ 'prefix':            '[',
-        \ 'individual_prefix': '#',
-        \ 'individual_suffix': '',
-        \ 'suffix':            ']',
-        \ 'delimiter':         ',',
+        \ 'filter':      '-state:accepted -state:unscheduled',
+        \ 'prefix':      '[',
+        \ 'prefix_each': '#',
+        \ 'suffix_each': '',
+        \ 'suffix':      ']',
+        \ 'delimiter':   ',',
         \ }
 
   if (exists('g:pivotaltracker'))

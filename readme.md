@@ -43,11 +43,11 @@ The following variables can be changed to configure how issue ids are
 formatted:
 
 ```vim
-let g:pivotaltracker.delimiter         = ', '
-let g:pivotaltracker.prefix            = ''
-let g:pivotaltracker.suffix            = ''
-let g:pivotaltracker.individual_prefix = '#'
-let g:pivotaltracker.individual_suffix = ''
+let g:pivotaltracker.delimiter   = ','
+let g:pivotaltracker.prefix      = '['
+let g:pivotaltracker.suffix      = ']'
+let g:pivotaltracker.prefix_each = '#'
+let g:pivotaltracker.suffix_each = ''
 ```
 
 ### Mappings
