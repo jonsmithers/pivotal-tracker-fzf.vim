@@ -54,13 +54,18 @@ func! s:sink(selection)
   let s:result = l:result
 endfunc
 
-func! s:grab_config()
-  let l:config                   = exists('g:pivotaltracker')                   ? g:pivotaltracker                   : {}
-  let l:config.filter            = exists('g:pivotaltracker.filter')            ? g:pivotaltracker.filter            : '-state:accepted -state:unscheduled'
-  let l:config.prefix            = exists('g:pivotaltracker.prefix')            ? g:pivotaltracker.prefix            : '['
-  let l:config.individual_prefix = exists('g:pivotaltracker.individual_prefix') ? g:pivotaltracker.individual_prefix : '#'
-  let l:config.individual_suffix = exists('g:pivotaltracker.individual_suffix') ? g:pivotaltracker.individual_suffix : ''
-  let l:config.suffix            = exists('g:pivotaltracker.suffix')            ? g:pivotaltracker.suffix            : ']'
-  let l:config.delimiter         = exists('g:pivotaltracker.delimiter')         ? g:pivotaltracker.delimiter         : ','
+func! s:grab_config() abort
+  let l:config = {
+        \ 'filter':            '-state:accepted -state:unscheduled',
+        \ 'prefix':            '[',
+        \ 'individual_prefix': '#',
+        \ 'individual_suffix': '',
+        \ 'suffix':            ']',
+        \ 'delimiter':         ',',
+        \ }
+
+  if (exists('g:pivotaltracker'))
+    call extend(l:config, g:pivotaltracker)
+  endif
   return l:config
 endfunc
