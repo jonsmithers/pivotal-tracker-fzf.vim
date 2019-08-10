@@ -4,7 +4,7 @@ Made to help you reference Pivotal Tracker issues in your git commit messages.
 
 ## Demonstration
 
-![Demonstration](https://github.com/jonsmithers/pivotal-tracker-fzf.vim/raw/images/terminalizer/render1541963208390.gif)
+![Demonstration](https://raw.githubusercontent.com/jonsmithers/pivotal-tracker-fzf.vim/images/terminalizer/render1565453099800.gif)
 
 ## Installation
 
